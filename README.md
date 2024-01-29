@@ -1,40 +1,41 @@
 # Cancer Moonshot Patent Data
-Data visualization for the [Cancer Moonshot Patent Data](https://www.uspto.gov/ip-policy/economic-research/research-datasets/cancer-moonshot-patent-data): 270,000 cancer-related patents submitted between 1976 and 2016.
+ <font size="4"> 
+Data visualization for the [Cancer Moonshot Patent Data](https://www.uspto.gov/ip-policy/economic-research/research-datasets/cancer-moonshot-patent-data) published in 2016. The data include 270,000 cancer-related patents published between 1976 and 2016. 
+</font>
 
-# Summary of Patent Categories
+## Summary of patent categories
+```{=html}
+<img src="./figures/patent_pie_counts.jpg"
+width="700"
+height="700"/>
+```
+```{=html}
+<img src="./figures/patent_pie_fractions.jpg"
+width="700"
+height="700"/>
+```
+## Patents published over time
+```{=html}
+<img src="./figures/patent_timeseries_raw.png"
+width="850"
+height="600"/>
+```
+```{=html}
+<img src="./figures/patent_timeseries_log.png"
+width="850"
+height="600"/>
+```
+## Histograms of patent submission to publication time
 
-<p align="center">  
-<img src="https://github.com/jhavsmith/cancer_patents/tree/main/figures/patent_pie_counts.pdf"
-width="600"></center>  
-</p>  
+```{=html}
+<img src="./figures/histogram_time_to_patent_approval.png"
+width="850"
+height="850"/>
+```
+## Boxplot of patent submission to publication time
 
-<p align="center">  
-<img src="https://github.com/jhavsmith/cancer_patents/tree/main/figures/patent_pie_fractions.pdf"
-width="600"></center>  
-</p>  
-
-# Published Patents Over Time
-
-<p align="center">  
-<img src="https://github.com/jhavsmith/cancer_patents/tree/main/figures/patent_timeseries_raw.png"
-width="600"></center>  
-</p>  
-
-<p align="center">  
-<img src="https://github.com/jhavsmith/cancer_patents/tree/main/figures/patent_timeseries_log.png"
-width="600"></center>  
-</p>  
-
-# Histograms of Time to Patent Approval
-
-<p align="center">  
-<img src="https://github.com/jhavsmith/cancer_patents/tree/main/figures/histogram_time_to_patent_approval.png"
-width="600"></center>  
-</p>  
-
-# Boxplots of Time to Patent Approval
-
-<p align="center">  
-<img src="https://github.com/jhavsmith/cancer_patents/tree/main/figures/boxplot_time_to_patent_approval.png"
-width="600"></center>  
-</p>  
+```{=html}
+<img src="./figures/boxplot_time_to_patent_approval.png"
+width="850"
+height="600"/>
+```

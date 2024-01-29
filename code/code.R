@@ -10,7 +10,7 @@ library(reshape2)
 
 
 # Load and tidy data
-mydata = read.csv("cancer_patents.csv")
+mydata = read.csv("../data/cancer_patents.csv")
 longdata = reshape2::melt(mydata, id.vars=colnames(mydata)[-c(13:21)],variable.name='category')
 tidydata = longdata %>% 
 	filter(value==1, Grant_or_Publication_Date > '1975-12-31') %>%
@@ -47,9 +47,9 @@ ggplot(catdata, aes(x = "" , y = fraction, fill = fct_inorder(category))) +
                    aes(y = pos, label = paste0(fraction, "%")),
                    size = 4.5, nudge_x = 1, show.legend = FALSE) +
   guides(fill = guide_legend(title = "")) +
-  ggtitle("CPC Technology Categories") + 
+  ggtitle("Proportion of patents published by category") + 
   theme_void()
-  ggsave("patent_pie_fractions.pdf")
+  ggsave("patent_pie_fractions.jpg",device="jpeg")
 
 ggplot(catdata, aes(x = "" , y = tot, fill = fct_inorder(category))) +
   geom_col(width = 1, color = 1) +
@@ -59,9 +59,9 @@ ggplot(catdata, aes(x = "" , y = tot, fill = fct_inorder(category))) +
                    aes(y = pos, label = as.character(tot)),
                    size = 4.5, nudge_x = 1, show.legend = FALSE) +
   guides(fill = guide_legend(title = "")) +
-  ggtitle("CPC Technology Categories") + 
+  ggtitle("Raw count of patents published by category") + 
   theme_void()
-  ggsave("patent_pie_counts.pdf")
+  ggsave("patent_pie_counts.jpg",device="jpeg")
 
 
 # Plots of cumulative sum over time
