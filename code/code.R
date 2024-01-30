@@ -49,7 +49,7 @@ ggplot(catdata, aes(x = "" , y = fraction, fill = fct_inorder(category))) +
   guides(fill = guide_legend(title = "")) +
   ggtitle("Proportion of patents published by category") + 
   theme_void()
-  ggsave("patent_pie_fractions.jpg",device="jpeg")
+  ggsave("../figures/patent_pie_fractions.jpg",device="jpeg")
 
 ggplot(catdata, aes(x = "" , y = tot, fill = fct_inorder(category))) +
   geom_col(width = 1, color = 1) +
@@ -61,8 +61,9 @@ ggplot(catdata, aes(x = "" , y = tot, fill = fct_inorder(category))) +
   guides(fill = guide_legend(title = "")) +
   ggtitle("Raw count of patents published by category") + 
   theme_void()
-  ggsave("patent_pie_counts.jpg",device="jpeg")
-
+  theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
+  ggsave("../figures/patent_pie_counts.jpg",device="jpeg")
+  
 
 # Plots of cumulative sum over time
 
@@ -86,7 +87,7 @@ ggplot(datedata, aes(x = as.Date(date), y = value)) +
 	ylab("Count") + 
 	ggtitle("Cumulative Patents Published") + 
 	theme_dark()
- 	ggsave("patent_timeseries_raw.png",width = 7, height = 5)
+ 	ggsave("../figures/patent_timeseries_raw.png",width = 7, height = 5)
 
 # Log10 Scale
 
@@ -99,7 +100,7 @@ ggplot(datedata, aes(x = as.Date(date), y = value+.1)) +
 	ylab("Count") + 
 	ggtitle("Cumulative Patents Published") + 
 	theme_dark()
- 	ggsave("patent_timeseries_log.png",width = 7, height = 5)
+ 	ggsave("../figures/patent_timeseries_log.png",width = 7, height = 5)
 
 # Time to patent grant across categories
 
@@ -118,7 +119,7 @@ ggplot(time_data, aes(x=uspto_interval,fill=category)) +
   guides(color = guide_legend(title = "Category")) + 
   xlab("Days to Patent Grant") + 
   theme_dark()
-  ggsave("histogram_time_to_patent_approval.png",width=6.5,height=6.5)
+  ggsave("../figures/histogram_time_to_patent_approval.png",width=6.5,height=6.5)
 
 
 ggplot(time_data, aes(x=uspto_interval,y=category,fill=category)) + 
@@ -128,7 +129,7 @@ ggplot(time_data, aes(x=uspto_interval,y=category,fill=category)) +
   xlab("Days to Patent Grant") + 
   ylab("") + 
   theme_dark()
-  ggsave("boxplot_time_to_patent_approval.png",width=7,height=5)
+  ggsave("../figures/boxplot_time_to_patent_approval.png",width=7,height=5)
 
 # split FDA applications into rows
 fda_filt_data = filter(tidydata, FDA_Approval_Date!="")

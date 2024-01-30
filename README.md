@@ -1,12 +1,6 @@
-<font size="4"> Data visualization for the [Cancer Moonshot Patent Data](https://www.uspto.gov/ip-policy/economic-research/research-datasets/cancer-moonshot-patent-data) published in 2016. The data include 270,000 cancer-related patents published between 1976 and 2016. </font>
+# Cancer Moonshot Patent Data
 
----
-title: "Cancer Moonshot Patent Data"
-output:
-  html_document:
-    toc: yes
-pagetitle: Habits
----
+<font size="4"> Data visualization for the [Cancer Moonshot Patent Data](https://www.uspto.gov/ip-policy/economic-research/research-datasets/cancer-moonshot-patent-data) published in 2016. The data include 270,000 cancer-related patents published between 1976 and 2016. </font>
 
 ## Count summaries
 
