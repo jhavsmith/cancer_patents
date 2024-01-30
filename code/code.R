@@ -39,6 +39,7 @@ posdata <- catdata %>%
 posdata$pos = if_else(is.na(posdata$pos), posdata$tot/2, posdata$pos)
 mycolors = c(brewer.pal(8, "Set2"),"#ffffff")
 
+png("../figures/patent_pie_fractions.png",width=500, height=300)
 ggplot(catdata, aes(x = "" , y = fraction, fill = fct_inorder(category))) +
   geom_col(width = 1, color = 1) +
   coord_polar(theta = "y") +
@@ -47,10 +48,11 @@ ggplot(catdata, aes(x = "" , y = fraction, fill = fct_inorder(category))) +
                    aes(y = pos, label = paste0(fraction, "%")),
                    size = 4.5, nudge_x = 1, show.legend = FALSE) +
   guides(fill = guide_legend(title = "")) +
-  ggtitle("Proportion of patents published by category") + 
+  ggtitle("Patent category counts") + 
   theme_void()
-  ggsave("../figures/patent_pie_fractions.jpg",device="jpeg")
+  dev.off()
 
+png("../figures/patent_pie_counts.png",width=500, height=300)
 ggplot(catdata, aes(x = "" , y = tot, fill = fct_inorder(category))) +
   geom_col(width = 1, color = 1) +
   coord_polar(theta = "y") +
@@ -59,11 +61,9 @@ ggplot(catdata, aes(x = "" , y = tot, fill = fct_inorder(category))) +
                    aes(y = pos, label = as.character(tot)),
                    size = 4.5, nudge_x = 1, show.legend = FALSE) +
   guides(fill = guide_legend(title = "")) +
-  ggtitle("Raw count of patents published by category") + 
+  ggtitle("Patent category proportions") + 
   theme_void()
-  theme(plot.margin=grid::unit(c(0,0,0,0), "mm"))
-  ggsave("../figures/patent_pie_counts.jpg",device="jpeg")
-  
+dev.off()  
 
 # Plots of cumulative sum over time
 
