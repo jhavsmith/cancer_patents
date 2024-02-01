@@ -39,7 +39,7 @@ posdata <- catdata %>%
 posdata$pos = if_else(is.na(posdata$pos), posdata$tot/2, posdata$pos)
 mycolors = c(brewer.pal(8, "Set2"),"#ffffff")
 
-png("../figures/patent_pie_fractions.png",width = 700, height = 700)
+png("../figures/patent_pie_fractions3.png",width = 600, height = 600)
 ggplot(catdata, aes(x = "" , y = fraction, fill = fct_inorder(category))) +
   geom_col(width = 1, color = 1) +
   coord_polar(theta = "y") +
@@ -49,7 +49,7 @@ ggplot(catdata, aes(x = "" , y = fraction, fill = fct_inorder(category))) +
                    size = 4.5, nudge_x = 1, show.legend = FALSE) +
   guides(fill = guide_legend(title = "")) +
   ggtitle("Patent category proportions") + 
-  theme_void()
+  theme_void() 
 dev.off()
 
 png("../figures/patent_pie_counts.png",width = 600, height = 600)

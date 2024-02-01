@@ -4,7 +4,7 @@
 
 ## Patent count summary
 
-![](https://raw.githubusercontent.com/jhavsmith/cancer_patents/main/figures/patent_pie_fractions2.png)
+![](https://raw.githubusercontent.com/jhavsmith/cancer_patents/main/figures/patent_pie_fractions3.png)
 
 ## Patents published over time
 
