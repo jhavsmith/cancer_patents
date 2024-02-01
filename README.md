@@ -2,8 +2,6 @@
 
 <font size="4"> Data visualization for the [Cancer Moonshot Patent Data](https://www.uspto.gov/ip-policy/economic-research/research-datasets/cancer-moonshot-patent-data) published in 2016. The data include 270,000 cancer-related patents published between 1976 and 2016. </font>
 
-## Patent count summary
-
 ![](https://raw.githubusercontent.com/jhavsmith/cancer_patents/main/figures/patent_pie_fractions4.png)
 
 ## Patents published over time

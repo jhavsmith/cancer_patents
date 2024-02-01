@@ -7,6 +7,7 @@ library(scales)
 library(RColorBrewer)
 library(data.table)
 library(reshape2)
+library(ggeasy)
 
 
 # Load and tidy data
@@ -39,17 +40,19 @@ posdata <- catdata %>%
 posdata$pos = if_else(is.na(posdata$pos), posdata$tot/2, posdata$pos)
 mycolors = c(brewer.pal(8, "Set2"),"#ffffff")
 
-png("../figures/patent_pie_fractions3.png",width = 600, height = 600)
+png("../figures/patent_pie_fractions4.png",width = 900, height = 900)
 ggplot(catdata, aes(x = "" , y = fraction, fill = fct_inorder(category))) +
   geom_col(width = 1, color = 1) +
   coord_polar(theta = "y") +
   scale_fill_manual(values=mycolors) +
   geom_label_repel(data = posdata_frac,
                    aes(y = pos, label = paste0(fraction, "%")),
-                   size = 4.5, nudge_x = 1, show.legend = FALSE) +
+                   size = 8, nudge_x = 1, show.legend = FALSE) +
   guides(fill = guide_legend(title = "")) +
-  ggtitle("Patent category proportions") + 
-  theme_void() 
+  ggtitle("Patent category proportions") +
+  theme(panel.background = element_blank(),text = element_text(size = 25)) + 
+  easy_remove_x_axis(what = c("ticks", "title", "text", "line"), teach = FALSE) + 
+  easy_remove_y_axis(what = c("ticks", "title", "text", "line"), teach = FALSE)
 dev.off()
 
 png("../figures/patent_pie_counts.png",width = 600, height = 600)
