@@ -8,7 +8,7 @@ library(RColorBrewer)
 library(data.table)
 library(reshape2)
 library(ggeasy)
-
+library(forcats)
 
 # Load and tidy data
 mydata = read.csv("../data/cancer_patents.csv")
@@ -40,7 +40,16 @@ posdata <- catdata %>%
 posdata$pos = if_else(is.na(posdata$pos), posdata$tot/2, posdata$pos)
 mycolors = c(brewer.pal(8, "Set2"),"#ffffff")
 
-png("../figures/patent_pie_fractions4.png",width = 900, height = 900)
+catdata = within(catdata, 
+           category <- factor(category, 
+           levels=category[sort(order(fraction))]))))
+
+ggplot(catdata, aes(y = fraction, x=fct_reorder(category, fraction),fill = category)) +
+geom_bar(position="dodge", stat="identity") + 
+coord_flip() + 
+
+
+png("../figures/patent_pie_fractions5.png",width = 900, height = 900)
 ggplot(catdata, aes(x = "" , y = fraction, fill = fct_inorder(category))) +
   geom_col(width = 1, color = 1) +
   coord_polar(theta = "y") +
