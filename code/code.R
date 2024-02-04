@@ -44,10 +44,12 @@ catdata = within(catdata,
            category <- factor(category, 
            levels=category[sort(order(fraction))]))))
 
-ggplot(catdata, aes(y = fraction, x=fct_reorder(category, fraction),fill = category)) +
+ggplot(catdata, aes(y = fraction, x=fct_reorder(category, fraction))) +
 geom_bar(position="dodge", stat="identity") + 
-coord_flip() + 
-
+xlab("Category") + 
+ylab("Percent of Patents") + 
+coord_flip()
+ggsave("../figures/patent_fraction_barplot.png",width = 7, height = 5)
 
 png("../figures/patent_pie_fractions5.png",width = 900, height = 900)
 ggplot(catdata, aes(x = "" , y = fraction, fill = fct_inorder(category))) +
